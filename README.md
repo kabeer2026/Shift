@@ -1,57 +1,77 @@
 # Shift
 
-**Shift** is a high-performance, multi-account container desktop application designed to run multiple isolated Signal accounts simultaneously without performance degradation, lag, or session conflicts.
+**Shift** is a high-performance, multi-account container desktop application designed to run multiple isolated Signal, WhatsApp, and Telegram accounts from one unified workspace.
 
 ---
 
 ## Key Features
 
-* **Multi-Account Containers:** Run multiple Signal instances side by side in completely isolated container environments.
-* **Lag-Free Performance:** Optimized resource allocation ensures fast startup times and minimal memory overhead, even with several active accounts.
-* **Isolated Session Data:** Keeps account storage, encryption keys, and cache strictly separated across containers to prevent data leaks.
-* **Native Desktop Experience:** Clean, modern interface designed for smooth navigation between accounts.
+- **Multi-Platform Support:** Manage Signal, WhatsApp, and Telegram accounts within one desktop application.
+- **Multi-Account Containers:** Run multiple accounts for each supported platform simultaneously.
+- **Isolated Session Data:** Every account uses its own isolated profile, preventing sessions, cookies, account data, and cache from leaking between profiles.
+- **Fast Profile Switching:** Switch instantly between active account tabs from the Shift sidebar.
+- **Persistent Sessions:** Signed-in accounts remain available after Shift is closed and reopened.
+- **Bilingual Interface:** Supports English and Simplified Chinese.
+- **Native Desktop Experience:** Clean, modern interface designed for smooth navigation between accounts.
 
 ---
 
 ## How It Works
 
-Shift functions as a parent application that orchestrates lightweight container environments. Each container hosts a dedicated instance of Signal with its own isolated profile directory, allowing you to manage personal, work, and secondary accounts seamlessly from a single workspace.
+Shift operates as a parent desktop application that manages separate account profiles for Signal, WhatsApp, and Telegram.
+
+Signal accounts run through Shift’s bundled private Signal runtime, with a dedicated local profile directory for every account.
+
+WhatsApp and Telegram run through a shared Microsoft WebView2 environment while maintaining completely separate named profiles for every account. This improves efficiency without sharing login sessions or profile data between accounts.
 
 ---
 
 ## Installation
 
 ### Prerequisites
-* Windows 10 / 11 (64-bit)
+
+- Windows 10 / 11 (64-bit)
+
+All required application components, including the Microsoft Edge WebView2 Runtime, are included in the Shift installer.
 
 ### Getting Started
 
-1. Go to the **[Releases](../../releases)** page.
-2. Download the latest release build (`Shift-v1.0.0.zip` or installer executable).
-3. Extract and launch `Shift.exe`.
+1. Go to the [**Releases**](https://github.com/kabeer2026/Shift/releases) page.
+2. Download the latest `Shift-Setup.exe` installer.
+3. Run the installer and select your preferred language.
+4. Launch Shift using the desktop or Start Menu shortcut.
 
 ---
 
 ## Quick Start Guide
 
-1. **Launch Shift:** Open the parent application.
-2. **Add an Account:** Click the **`+ Add Account`** button on the sidebar to spin up a new isolated container.
-3. **Link Signal:** Scan the QR code using the Signal app on your phone to authorize the instance.
-4. **Switch Seamlessly:** Click between account tabs or use keyboard shortcuts to switch profiles instantly.
+1. **Launch Shift:** Open the Shift application.
+2. **Add an Account:** Click the **`+ Add Account`** button.
+3. **Select a Platform:** Choose Signal, WhatsApp, or Telegram.
+4. **Sign In:** Complete the platform’s normal account-linking or sign-in process.
+5. **Switch Seamlessly:** Click any account tab in the sidebar to switch profiles instantly.
+6. **Rename a Tab:** Assign a custom display name to identify each account easily.
+7. **Delete a Profile:** Delete an account tab from the Shift interface when it is no longer required.
 
 ---
 
 ## Tech Stack & Architecture
 
-* **Parent Host Application:** Manages container lifecycle, window framing, and process isolation.
-* **Container Isolation:** Sandboxed user data directories ensuring independent session state and zero cross-account leakage.
+- **Parent Host Application:** Manages account tabs, application windows, profile lifecycle, and persistent state.
+- **Signal Runtime:** Uses Shift’s bundled private Signal runtime with a separate local profile directory for every Signal account.
+- **WebView2 Environment:** WhatsApp and Telegram share one WebView2 environment while retaining isolated named profiles.
+- **Profile Isolation:** Keeps the session data of every Signal, WhatsApp, and Telegram account separate.
+- **Local Storage:** Account profiles and application state remain stored locally on the user’s computer.
+- **Bundled Dependencies:** The installer includes Signal and the Microsoft Edge WebView2 Runtime required by Shift.
 
 ---
 
 ## Security & Privacy
 
-* **Zero Cloud Intermediary:** Shift operates locally on your machine. All network traffic routes directly between your local Signal instances and official Signal servers.
-* **Local Data Encapsulation:** Session tokens and cached messages remain stored within their respective local container boundaries.
+- **No Shift Cloud Intermediary:** Shift does not operate a separate cloud service for handling account sessions or message content.
+- **Isolated Account Profiles:** Login sessions and cached data remain separated between individual account profiles.
+- **Local Data Storage:** Shift stores its profile data locally on the user’s computer.
+- **Official Services:** Signal, WhatsApp, and Telegram continue communicating through their respective official services.
 
 ---
 
