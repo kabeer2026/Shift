@@ -20,8 +20,6 @@
 
 Shift operates as a parent desktop application that manages separate account profiles for Signal, WhatsApp, and Telegram.
 
-Signal accounts run through Shift’s bundled private Signal runtime, with a dedicated local profile directory for every account.
-
 WhatsApp and Telegram run through a shared Microsoft WebView2 environment while maintaining completely separate named profiles for every account. This improves efficiency without sharing login sessions or profile data between accounts.
 
 ---
