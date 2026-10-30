@@ -56,8 +56,6 @@ All required application components, including the Microsoft Edge WebView2 Runti
 ## Tech Stack & Architecture
 
 - **Parent Host Application:** Manages account tabs, application windows, profile lifecycle, and persistent state.
-- **Signal Runtime:** Uses Shift’s bundled private Signal runtime with a separate local profile directory for every Signal account.
-- **WebView2 Environment:** WhatsApp and Telegram share one WebView2 environment while retaining isolated named profiles.
 - **Profile Isolation:** Keeps the session data of every Signal, WhatsApp, and Telegram account separate.
 - **Local Storage:** Account profiles and application state remain stored locally on the user’s computer.
 - **Bundled Dependencies:** The installer includes Signal and the Microsoft Edge WebView2 Runtime required by Shift.
